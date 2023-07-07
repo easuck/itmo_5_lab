@@ -5,7 +5,7 @@ import java.time.ZonedDateTime;
 public class MusicBand {
 
     private Long id;
-    private static Long idCounter = 0;
+    private static long idCounter = 0;
     private String name;
     private Coordinates coordinates;
     private ZonedDateTime creationDate;
