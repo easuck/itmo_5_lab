@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<musicBands>
+    <musicBand>
+        <name>Linkin Park</name>
+        <coordinates>
+            <x>0</x>
+            <y>1</y>
+        </coordinates>
+        <numberOfParticipants>5</numberOfParticipants>
+        <singlesCount>10</singlesCount>
+        <genre>HIP_HOP</genre>
+        <bestAlbum>Hybrid theory</bestAlbum>
+    </musicBand>
+</musicBands>
