@@ -1,6 +1,17 @@
 package Commands;
 
+import Utility.CollectionManager;
+
 public class ShowCommand implements Command{
+
+    public CollectionManager collectionManager;
+
+    public ShowCommand(CollectionManager collectionManager){
+        this.collectionManager = collectionManager;
+    }
+
+    public ShowCommand(){};
+
     @Override
     public String getName() {
         return "show";
@@ -13,6 +24,6 @@ public class ShowCommand implements Command{
 
     @Override
     public void execute() {
-        
+        collectionManager.showElements();
     }
 }

@@ -1,8 +1,6 @@
 package Utility;
 
-import Commands.Command;
-import Commands.ExitCommand;
-import Commands.HelpCommand;
+import Commands.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,11 +18,17 @@ public class CommandsManager {
         commandsMap = new HashMap<>();
         commandsMap.put("help", new HelpCommand());
         commandsMap.put("exit", new ExitCommand());
+        commandsMap.put("info", new InfoCommand(collectionManager));
+        commandsMap.put("show", new ShowCommand(collectionManager));
+        commandsMap.put("insert", new InsertCommand(collectionManager));
     }
 
     public CommandsManager(){
         commandsListForHelpCommand = new ArrayList<>();
         commandsListForHelpCommand.add(new ExitCommand());
+        commandsListForHelpCommand.add(new InfoCommand());
+        commandsListForHelpCommand.add(new ShowCommand());
+        commandsListForHelpCommand.add(new InsertCommand());
     }
 
     public HashMap<String, Command> getCommandsMap() {
@@ -40,7 +44,7 @@ public class CommandsManager {
         while (consoleManager.ifScannerHasNext()){
             command = consoleManager.readString().trim();
             if (!commandsMap.containsKey(command)){
-                consoleManager.println("no such command");
+                consoleManager.println("no such command, try write \"help\" for available commands");
                 consoleManager.print("enter command: ");
             }
             else{

@@ -18,5 +18,23 @@
                 </bestAlbum>
             </value>
         </entry>
+
+        <entry>
+            <key>1</key>
+            <value>
+                <name>Серега Пират</name>
+                <coordinates>
+                    <x>1.0</x>
+                    <y>0.0</y>
+                </coordinates>
+                <numberOfParticipants>1</numberOfParticipants>
+                <singlesCount>2</singlesCount>
+                <genre>RAP</genre>
+                <bestAlbum>
+                    <name>почему ты еще не фанат</name>
+                    <length>12</length>
+                </bestAlbum>
+            </value>
+        </entry>
     </musicBands>
 </musicBands>
