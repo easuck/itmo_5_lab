@@ -44,7 +44,7 @@ public class CommandsManager {
                 consoleManager.print("enter command: ");
             }
             else{
-                commandsMap.get(command).execute(command);
+                commandsMap.get(command).execute();
                 consoleManager.print("enter command: ");
             }
         }

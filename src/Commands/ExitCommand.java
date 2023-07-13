@@ -21,15 +21,8 @@ public class ExitCommand implements Command{
     }
 
     @Override
-    public void execute(String argument) {
-        try{
-            if(!argument.isEmpty() && !argument.equals(getName())) throw new Exception();
-            consoleManager.println("good bye virubai");
-            consoleManager.exit();
-        }
-        catch(Exception e){
-            consoleManager.println("incorrect input, try again");
-        }
-
+    public void execute() {
+        consoleManager.println("good bye virubai");
+        consoleManager.exit();
     }
 }

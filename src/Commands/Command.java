@@ -6,6 +6,6 @@ public interface Command {
 
     String getDescription();
 
-    void execute(String argument);
+    void execute();
 
 }
