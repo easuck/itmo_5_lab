@@ -26,17 +26,11 @@ public class HelpCommand implements Command{
     }
 
     @Override
-    public void execute(String argument) {
-        try{
-            if(!argument.isEmpty() && !argument.equals(getName())) throw new Exception();
-            List<Command> commands = commandsManager.getCommandsListForHelpCommand();
-            consoleManager.println(getName() + ": " + getDescription());
-            for (Command command : commands){
-                consoleManager.println(command.getName() + ": " + command.getDescription());
-            }
-        }
-        catch(Exception e){
-            consoleManager.println("incorrect command usage, try to write this one: " + getName());
+    public void execute() {
+        List<Command> commands = commandsManager.getCommandsListForHelpCommand();
+        consoleManager.println(getName() + ": " + getDescription());
+        for (Command command : commands){
+            consoleManager.println(command.getName() + ": " + command.getDescription());
         }
     }
 }

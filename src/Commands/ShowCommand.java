@@ -12,7 +12,7 @@ public class ShowCommand implements Command{
     }
 
     @Override
-    public void execute(String argument) {
+    public void execute() {
         
     }
 }
