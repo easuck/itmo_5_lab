@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<musicBands>
+    <musicBands>
+        <entry>
+            <key>0</key>
+            <value>
+                <name>Aurora</name>
+                <coordinates>
+                    <x>1.0</x>
+                    <y>0.0</y>
+                </coordinates>
+                <numberOfParticipants>1</numberOfParticipants>
+                <singlesCount>2</singlesCount>
+                <genre>POP</genre>
+                <bestAlbum>
+                    <name>human</name>
+                    <length>12</length>
+                </bestAlbum>
+            </value>
+        </entry>
+    </musicBands>
+</musicBands>

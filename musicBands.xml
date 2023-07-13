@@ -9,6 +9,24 @@
         <numberOfParticipants>5</numberOfParticipants>
         <singlesCount>10</singlesCount>
         <genre>HIP_HOP</genre>
-        <bestAlbum>Hybrid theory</bestAlbum>
+        <bestAlbum>
+            <name>hybrid theory</name>
+            <length>12</length>
+        </bestAlbum>
+    </musicBand>
+    <musicBand>
+        <key>1</key>
+        <name>Starset</name>
+        <coordinates>
+            <x>0</x>
+            <y>1</y>
+        </coordinates>
+        <numberOfParticipants>4</numberOfParticipants>
+        <singlesCount>10</singlesCount>
+        <genre>HIP_HOP</genre>
+        <bestAlbum>
+            <name>vessels</name>
+            <length>13</length>
+        </bestAlbum>
     </musicBand>
 </musicBands>

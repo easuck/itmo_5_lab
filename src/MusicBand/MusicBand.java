@@ -1,17 +1,35 @@
 package MusicBand;
 
+import javax.xml.bind.annotation.*;
 import java.time.ZonedDateTime;
 
+@XmlRootElement(name = "musicBand")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class MusicBand {
 
+    @XmlTransient
     private Long id;
     private static long idCounter = 0;
+
+    @XmlElement(required = true)
     private String name;
+
+    @XmlElement(required = true)
     private Coordinates coordinates;
+
+    @XmlTransient
     private ZonedDateTime creationDate;
+
+    @XmlElement(required = true)
     private Integer numberOfParticipants;
+
+    @XmlElement(required = true)
     private Integer singlesCount;
+
+    @XmlElement(required = true)
     private MusicGenre genre;
+
+    @XmlElement(required = true)
     private Album bestAlbum;
 
     public MusicBand(String name, Coordinates coordinates, Integer numberOfParticipants,
@@ -26,7 +44,10 @@ public class MusicBand {
         this.bestAlbum = bestAlbum;
     }
 
-    public MusicBand(){};
+    public MusicBand(){
+        id = idCounter++;
+        creationDate = ZonedDateTime.now();
+    };
 
     public Long getId() {
         return id;

@@ -1,7 +1,20 @@
 package MusicBand;
 
 public enum MusicGenre {
-    RAP,
-    HIP_HOP,
-    POP;
+    RAP("рэп"),
+    HIP_HOP("хип-хоп"),
+    POP("поп");
+
+    private String title;
+
+    MusicGenre(String title){
+        this.title = title;
+    }
+
+    public String getTitle() { return title; }
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }
