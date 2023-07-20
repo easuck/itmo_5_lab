@@ -1,6 +1,6 @@
 package MusicBand;
 
-import Utility.ZonedDateTimeAdapter;
+import AdaptersAndComparators.ZonedDateTimeAdapter;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;

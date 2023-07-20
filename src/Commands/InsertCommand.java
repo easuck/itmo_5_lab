@@ -3,18 +3,18 @@ package Commands;
 import MusicBand.MusicBand;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
-import Utility.UserAddElement;
+import Utility.UserActionsOnElement;
 
 public class InsertCommand implements Command{
 
     private ConsoleManager consoleManager;
-    private UserAddElement userAddElement;
+    private UserActionsOnElement userActionsOnElement;
     private CollectionManager collectionManager;
 
     public InsertCommand(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
         consoleManager = new ConsoleManager();
-        userAddElement = new UserAddElement(collectionManager);
+        userActionsOnElement = new UserActionsOnElement(collectionManager);
     }
 
     public InsertCommand(){};
@@ -44,7 +44,7 @@ public class InsertCommand implements Command{
             }
         }
         MusicBand musicBand = new MusicBand();
-        userAddElement.setElementOfCollection(musicBand);
+        userActionsOnElement.setElementOfCollection(musicBand);
         collectionManager.insertElementByKey(key, musicBand);
     }
 }

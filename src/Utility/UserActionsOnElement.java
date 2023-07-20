@@ -5,12 +5,12 @@ import MusicBand.Coordinates;
 import MusicBand.MusicBand;
 import MusicBand.MusicGenre;
 
-public class UserAddElement {
+public class UserActionsOnElement {
 
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;
 
-    public UserAddElement(CollectionManager collectionManager){
+    public UserActionsOnElement(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
         consoleManager = new ConsoleManager();
     }

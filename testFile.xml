@@ -4,13 +4,13 @@
         <entry>
             <key>0</key>
             <value>
-                <id>0</id>
+                <id></id>
                 <name>Aurora</name>
                 <coordinates>
                     <x>1.0</x>
                     <y>0.0</y>
                 </coordinates>
-                <creationDate>2023-07-20T11:29:54.499+06:00[GMT+06:00]</creationDate>
+                <creationDate></creationDate>
                 <numberOfParticipants>1</numberOfParticipants>
                 <singlesCount>2</singlesCount>
                 <genre>POP</genre>
@@ -20,7 +20,24 @@
                 </bestAlbum>
             </value>
         </entry>
+        <entry>
+            <key>1</key>
+            <value>
+                <id></id>
+                <name>Aurora</name>
+                <coordinates>
+                    <x>1.0</x>
+                    <y>0.0</y>
+                </coordinates>
+                <creationDate></creationDate>
+                <numberOfParticipants>1</numberOfParticipants>
+                <singlesCount>2</singlesCount>
+                <genre>POP</genre>
+                <bestAlbum>
+                    <name>human</name>
+                    <length>25</length>
+                </bestAlbum>
+            </value>
+        </entry>
     </musicBands>
-    <consoleManager/>
-    <fileReaderManager/>
 </musicBands>

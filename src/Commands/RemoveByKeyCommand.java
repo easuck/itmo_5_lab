@@ -3,22 +3,22 @@ package Commands;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 
-public class RemoveCommand implements Command{
+public class RemoveByKeyCommand implements Command{
 
     private CollectionManager collectionManager;
 
     private ConsoleManager consoleManager;
 
-    public RemoveCommand(CollectionManager collectionManager){
+    public RemoveByKeyCommand(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
         consoleManager = new ConsoleManager();
     }
 
-    public RemoveCommand(){};
+    public RemoveByKeyCommand(){};
 
     @Override
     public String getName() {
-        return "remove";
+        return "removeByKey";
     }
 
     @Override

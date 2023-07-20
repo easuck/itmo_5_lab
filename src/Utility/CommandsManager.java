@@ -21,9 +21,11 @@ public class CommandsManager {
         commandsMap.put("info", new InfoCommand(collectionManager));
         commandsMap.put("show", new ShowCommand(collectionManager));
         commandsMap.put("insert", new InsertCommand(collectionManager));
-        commandsMap.put("remove", new RemoveCommand(collectionManager));
+        commandsMap.put("removeByKey", new RemoveByKeyCommand(collectionManager));
         commandsMap.put("clear", new ClearCommand(collectionManager));
         commandsMap.put("save", new SaveCommand(collectionManager, fileReaderManager));
+        commandsMap.put("updateById", new UpdateByIdCommand(collectionManager));
+        commandsMap.put("removeGreater", new RemoveGreaterCommand(collectionManager));
     }
 
     public CommandsManager(){
@@ -32,9 +34,11 @@ public class CommandsManager {
         commandsListForHelpCommand.add(new InfoCommand());
         commandsListForHelpCommand.add(new ShowCommand());
         commandsListForHelpCommand.add(new InsertCommand());
-        commandsListForHelpCommand.add(new RemoveCommand());
+        commandsListForHelpCommand.add(new RemoveByKeyCommand());
         commandsListForHelpCommand.add(new ClearCommand());
         commandsListForHelpCommand.add(new SaveCommand());
+        commandsListForHelpCommand.add(new UpdateByIdCommand());
+        commandsListForHelpCommand.add(new RemoveGreaterCommand());
     }
 
     public HashMap<String, Command> getCommandsMap() {
