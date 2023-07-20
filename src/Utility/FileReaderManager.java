@@ -18,6 +18,8 @@ public class FileReaderManager {
         this.fileName = fileName;
     }
 
+    public FileReaderManager(){};
+
     public String getFileName() {
         return fileName;
     }

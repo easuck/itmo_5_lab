@@ -55,4 +55,20 @@ public class CollectionManager {
     public void insertElementByKey(int key, MusicBand musicBand) {
         musicBands.put(key, musicBand);
     }
+
+    public void updateElementById(long id){
+        for (Map.Entry<Integer, MusicBand> entry : musicBands.entrySet()){
+            if (entry.getValue().getId() == id){
+                //Дописать
+            }
+        }
+    }
+
+    public void removeElementByKey(int key){
+        musicBands.remove(key);
+    }
+
+    public void clearCollection(){
+        musicBands.clear();
+    }
 }

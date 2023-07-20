@@ -1,13 +1,16 @@
 package MusicBand;
 
+import Utility.ZonedDateTimeAdapter;
+
 import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.ZonedDateTime;
 
 @XmlRootElement(name = "musicBand")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class MusicBand {
 
-    @XmlTransient
+    @XmlElement
     private Long id;
     private static long idCounter = 0;
 
@@ -17,7 +20,7 @@ public class MusicBand {
     @XmlElement(required = true)
     private Coordinates coordinates;
 
-    @XmlTransient
+    @XmlJavaTypeAdapter(ZonedDateTimeAdapter.class)
     private ZonedDateTime creationDate;
 
     @XmlElement(required = true)
