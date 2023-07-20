@@ -12,8 +12,11 @@ import java.nio.file.Paths;
 public class FileWriterManager {
     private FileReaderManager fileReaderManager;
 
+    private ConsoleManager consoleManager;
+
     public FileWriterManager(FileReaderManager fileReaderManager){
         this.fileReaderManager = fileReaderManager;
+        consoleManager = new ConsoleManager();
     }
 
     public void writeCollectionInFile(CollectionManager collectionManager)  {
@@ -25,8 +28,11 @@ public class FileWriterManager {
 
             PrintWriter printWriter;
             if (!(Paths.get(fileReaderManager.getFileName()).toFile().exists())){
-                //пока ничего
-                printWriter = new PrintWriter("aboba.xml");
+                consoleManager.println("file not found, suggest to create a new file");
+                consoleManager.print("enter a name for the new file (without .xml): ");
+                String newFileName = consoleManager.readString().trim()+".xml";
+                printWriter = new PrintWriter(newFileName);
+
             }
             else{
                 printWriter = new PrintWriter(fileReaderManager.getFileName());
@@ -35,10 +41,10 @@ public class FileWriterManager {
             printWriter.close();
         }
         catch (JAXBException e){
-            System.out.println("гг");
+            System.out.println("gg");
         }
         catch (FileNotFoundException e) {
-            System.out.println("файл не найден");
+            System.out.println("file was not found");
         }
     }
 }
