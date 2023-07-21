@@ -1,2 +1,4 @@
-package Exceptions;public class NoKeyReferenceException {
+package Exceptions;
+
+public class NoKeyReferenceException extends Exception{
 }

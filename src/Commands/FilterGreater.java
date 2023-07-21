@@ -2,7 +2,6 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
-import Utility.UserActionsOnElement;
 
 public class FilterGreater implements Command{
 
@@ -27,19 +26,13 @@ public class FilterGreater implements Command{
     }
 
     @Override
-    public void execute() {
-        Integer numberOfParticipants;
-        while(true){
-            try{
-                consoleManager.print("enter album length: ");
-                numberOfParticipants = consoleManager.readInt();
-                if (!(numberOfParticipants instanceof Integer)) throw  new Exception();
-                break;
-            }
-            catch(Exception e){
-                consoleManager.println("you must enter a number, try again");
-            }
+    public void execute(String argument) {
+        try{
+            Integer numberOfParticipants = Integer.parseInt(argument);
+            collectionManager.filterGreater(numberOfParticipants);
         }
-        collectionManager.filterGreater(numberOfParticipants);
+        catch(NumberFormatException e){
+            consoleManager.println("number of participants must be a number");
+        }
     }
 }

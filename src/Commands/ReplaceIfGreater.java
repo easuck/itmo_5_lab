@@ -19,40 +19,23 @@ public class ReplaceIfGreater implements Command{
 
     @Override
     public String getName() {
-        return "removeIfGreater";
+        return "replaceIfGreater";
     }
 
     @Override
     public String getDescription() {
-        return "replace element by the key from collection if album length value is lower than given one";
+        return "replace the first element of the collection if album length value is lower than given one";
     }
 
     @Override
-    public void execute() {
-        Integer key;
-        Integer length;
-        while(true){
-            try{
-                consoleManager.print("enter key of element you want to replace: ");
-                key = consoleManager.readInt();
-                if (!(key instanceof Integer)) throw  new Exception();
-                break;
-            }
-            catch(Exception e){
-                consoleManager.println("you must enter a number, try again");
-            }
+    public void execute(String argument) {
+        try{
+            Integer length = Integer.parseInt(argument);
+            collectionManager.replaceIfGreater(length);
+            consoleManager.println("value was replaced");
         }
-        while(true){
-            try{
-                consoleManager.print("enter album length: ");
-                length = consoleManager.readInt();
-                if (!(length instanceof Integer)) throw  new Exception();
-                break;
-            }
-            catch(Exception e){
-                consoleManager.println("you must enter a number, try again");
-            }
+        catch(NumberFormatException e){
+            consoleManager.println("length must be a number");
         }
-        collectionManager.replaceIfGreater(key, length);
     }
 }

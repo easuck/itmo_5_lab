@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import MusicBand.MusicBand;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
@@ -30,21 +31,15 @@ public class InsertCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        Integer key;
-        while (true) {
-            try{
-                consoleManager.print("enter key to insert element: ");
-                key = consoleManager.readInt();
-                if (!(key instanceof Integer)) throw new Exception();
-                break;
-            }
-            catch(Exception e){
-                consoleManager.println("you must enter a number, try again");
-            }
+    public void execute(String argument) {
+        try{
+            Integer key = Integer.parseInt(argument);
+            MusicBand musicBand = new MusicBand();
+            userActionsOnElement.setElementOfCollection(musicBand);
+            collectionManager.insertElementByKey(key, musicBand);
         }
-        MusicBand musicBand = new MusicBand();
-        userActionsOnElement.setElementOfCollection(musicBand);
-        collectionManager.insertElementByKey(key, musicBand);
+        catch(NumberFormatException e){
+            consoleManager.println("key must be a number");
+        }
     }
 }

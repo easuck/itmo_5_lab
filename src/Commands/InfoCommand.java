@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 
@@ -26,11 +27,17 @@ public class InfoCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        consoleManager.println("Type of collection: music bands");
-        consoleManager.println("Count elements in collection: " + collectionManager.getCollectionSize());
-        if (collectionManager.getCollectionSize() != 0){
-            consoleManager.println("Inicialization date: " + collectionManager.getFirstElement().getCreationDate());
+    public void execute(String argument) {
+        try{
+            if (!argument.isEmpty() && !argument.equals(getName())) throw new WrongAmountCommandsException();
+            consoleManager.println("Type of collection: music bands");
+            consoleManager.println("Count elements in collection: " + collectionManager.getCollectionSize());
+            if (collectionManager.getCollectionSize() != 0){
+                consoleManager.println("Inicialization date: " + collectionManager.getFirstElement().getCreationDate());
+            }
+        }
+        catch(WrongAmountCommandsException e){
+            consoleManager.println("incorrect command usage, usage example: " + getName());
         }
     }
 }
