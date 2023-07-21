@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 
@@ -27,8 +28,17 @@ public class ClearCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        collectionManager.clearCollection();
-        consoleManager.println("collection was successfully cleared");
+    public void execute(String argument) {
+        try {
+            if(collectionManager.getCollectionSize()!=0) {
+                if (!argument.isEmpty() && !argument.equals(getName())) throw new WrongAmountCommandsException();
+                collectionManager.clearCollection();
+                consoleManager.println("Collection сleared");
+            }else{
+                consoleManager.println("There are no elements in the collection");
+            }
+        }catch (WrongAmountCommandsException ex) {
+            consoleManager.println("incorrect command usage, usage example: " + getName());
+        }
     }
 }

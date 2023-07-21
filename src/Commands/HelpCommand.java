@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import Utility.CommandsManager;
 import Utility.ConsoleManager;
 
@@ -26,11 +27,17 @@ public class HelpCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        List<Command> commands = commandsManager.getCommandsListForHelpCommand();
-        consoleManager.println(getName() + ": " + getDescription());
-        for (Command command : commands){
-            consoleManager.println(command.getName() + ": " + command.getDescription());
+    public void execute(String argument) {
+        try{
+            if (!argument.isEmpty() && !argument.equals(getName())) throw new WrongAmountCommandsException();
+            List<Command> commands = commandsManager.getCommandsListForHelpCommand();
+            consoleManager.println(getName() + ": " + getDescription());
+            for (Command command : commands){
+                consoleManager.println(command.getName() + ": " + command.getDescription());
+            }
+        }
+        catch(WrongAmountCommandsException e){
+            consoleManager.println("incorrect command usage, usage example: " + getName());
         }
     }
 }

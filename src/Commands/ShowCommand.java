@@ -1,13 +1,17 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import Utility.CollectionManager;
+import Utility.ConsoleManager;
 
 public class ShowCommand implements Command{
 
     public CollectionManager collectionManager;
+    public ConsoleManager consoleManager;
 
     public ShowCommand(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
+        consoleManager = new ConsoleManager();
     }
 
     public ShowCommand(){};
@@ -23,7 +27,13 @@ public class ShowCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        collectionManager.showElements();
+    public void execute(String argument) {
+        try{
+            if (!argument.isEmpty() && !argument.equals(getName())) throw new WrongAmountCommandsException();
+            collectionManager.showElements();
+        }
+        catch (WrongAmountCommandsException ex) {
+            consoleManager.println("incorrect command usage, usage example: " + getName());
+        }
     }
 }

@@ -1,6 +1,7 @@
 package Utility;
 
 import AdaptersAndComparators.AlbumLengthComparator;
+import Exceptions.NoKeyReferenceException;
 import MusicBand.MusicBand;
 import MusicBand.Album;
 import javax.xml.bind.annotation.*;
@@ -53,7 +54,8 @@ public class CollectionManager {
         musicBands.put(key, musicBand);
     }
 
-    public void removeElementByKey(int key){
+    public void removeElementByKey(int key) throws NoKeyReferenceException {
+        if (!musicBands.containsKey(key)) throw new NoKeyReferenceException();
         musicBands.remove(key);
     }
 
@@ -96,28 +98,19 @@ public class CollectionManager {
         consoleManager.println(count + " element(s) was/were removed from collection");
     }
 
-    public void replaceIfGreater(int key, int length) {
-        boolean flag = false;
+    public void replaceIfGreater(int length) {
         try{
-            for (Map.Entry<Integer, MusicBand> entry : musicBands.entrySet()){
-                if (entry.getKey() == key){
-                    if (entry.getValue().getBestAlbum().getLength() < length){
-                        entry.getValue().getBestAlbum().setLength(length);
-                        flag = true;
-                        break;
-                    }
-                }
+            if (musicBands.get(0).getBestAlbum().getLength() < length){
+                musicBands.get(0).getBestAlbum().setLength(length);
+            }
+            else{
+                consoleManager.println("album length value of the first element if greater than given one");
             }
         }
         catch(Exception e){
-            consoleManager.println("something wierd happened");
+            consoleManager.println("something wrong with length idk");
         }
-        if (flag == true){
-            consoleManager.println("element was successfully replaced");
-        }
-        else{
-            consoleManager.println("album length value of element is greater then given one, can't be replaced");
-        }
+
     }
 
     public void removeFirstByGenre(String genre){
@@ -129,7 +122,7 @@ public class CollectionManager {
                 break;
             }
         }
-        if (flag == true){
+        if (flag){
             consoleManager.println("element was successfully removed");
         }
         else{

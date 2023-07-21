@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import Utility.ConsoleManager;
 
 public class ExitCommand implements Command{
@@ -21,8 +22,13 @@ public class ExitCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        consoleManager.println("good bye virubai");
-        consoleManager.exit();
+    public void execute(String argument) {
+        try {
+            if (!argument.isEmpty() && !argument.equals(getName())) throw new WrongAmountCommandsException();
+            consoleManager.println("Good bye");
+            consoleManager.exit();
+        }catch (WrongAmountCommandsException ex) {
+            consoleManager.println("incorrect command usage, usage example: " + getName());
+        }
     }
 }

@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.NoKeyReferenceException;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 
@@ -27,19 +28,17 @@ public class RemoveByKeyCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        Integer key;
-        while (true) {
-            try{
-                consoleManager.print("enter key to remove element: ");
-                key = consoleManager.readInt();
-                if (!(key instanceof Integer)) throw new Exception();
-                break;
-            }
-            catch(Exception e){
-                consoleManager.println("you must enter a number, try again");
-            }
+    public void execute(String argument) {
+        try{
+            Integer key = Integer.parseInt(argument);
+            collectionManager.removeElementByKey(key);
+            consoleManager.println("element was removed");
         }
-        collectionManager.removeElementByKey(key);
+        catch(NumberFormatException e){
+            consoleManager.println("key must be a number");
+        }
+        catch(NoKeyReferenceException e){
+            consoleManager.println("no element with such key in collection");
+        }
     }
 }

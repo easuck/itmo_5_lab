@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import MusicBand.*;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
@@ -28,32 +29,40 @@ public class RemoveFirstByGenreCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        consoleManager.println("1.HIP-HOP\n2.RAP\n3.POP");
-        Integer genreNumber;
-        String genre;
-        while(true){
-            try{
-                consoleManager.print("enter a number of genre you need: ");
-                genreNumber = consoleManager.readInt();
-                if (genreNumber < 1 || genreNumber > 3 || !(genreNumber instanceof Integer)) throw new Exception();
-                if (genreNumber == 1){
-                    genre = MusicGenre.HIP_HOP.getTitle();
-                    break;
-                }
-                if (genreNumber == 2){
-                    genre = MusicGenre.RAP.getTitle();
-                    break;
-                }
-                if (genreNumber == 3){
+    public void execute(String argument) {
+        try{
+            if (!argument.isEmpty() && !argument.equals(getName())) throw new WrongAmountCommandsException();
+            consoleManager.println("1.HIP-HOP\n2.RAP\n3.POP");
+            Integer genreNumber;
+            String genre;
+            while(true){
+                try{
+                    consoleManager.print("enter a number of genre you need: ");
+                    genreNumber = consoleManager.readInt();
+                    if (genreNumber < 1 || genreNumber > 3) throw new Exception();
+                    if (genreNumber == 1){
+                        genre = MusicGenre.HIP_HOP.getTitle();
+                        break;
+                    }
+                    if (genreNumber == 2){
+                        genre = MusicGenre.RAP.getTitle();
+                        break;
+                    }
                     genre = MusicGenre.POP.getTitle();
                     break;
                 }
+                catch(Exception e){
+                    consoleManager.println("wrong input, try again");
+                }
             }
-            catch(Exception e){
-                consoleManager.println("wrong input, try again");
-            }
+            collectionManager.removeFirstByGenre(genre);
+            consoleManager.println("element was removed");
         }
-        collectionManager.removeFirstByGenre(genre);
+        catch(WrongAmountCommandsException e){
+            consoleManager.println("incorrect command usage, usage example: " + getName());
+        }
+        catch(NumberFormatException e){
+            consoleManager.println("wrong input, you must have entered the number of a genre");
+        }
     }
 }

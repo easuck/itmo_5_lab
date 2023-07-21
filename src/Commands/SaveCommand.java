@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 import Utility.FileReaderManager;
@@ -32,8 +33,14 @@ public class SaveCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        fileWriterManager.writeCollectionInFile(collectionManager);
-        consoleManager.println("collection was successfully saved");
+    public void execute(String argument) {
+        try{
+            if (!argument.isEmpty() && !argument.equals(getName())) throw new WrongAmountCommandsException();
+            fileWriterManager.writeCollectionInFile(collectionManager);
+            consoleManager.println("collection was successfully saved");
+        }
+        catch (WrongAmountCommandsException ex) {
+            consoleManager.println("incorrect command usage, usage example: " + getName());
+        }
     }
 }

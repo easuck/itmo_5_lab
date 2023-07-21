@@ -25,19 +25,14 @@ public class RemoveLowerCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        Integer length;
-        while(true){
-            try{
-                consoleManager.print("enter length of album: ");
-                length = consoleManager.readInt();
-                if (!(length instanceof Integer)) throw new Exception();
-                break;
-            }
-            catch (Exception e){
-                consoleManager.println("you must enter a number, try again");
-            }
+    public void execute(String argument) {
+        try{
+            Integer length = Integer.parseInt(argument);
+            collectionManager.removeLower(length);
+            consoleManager.println("element was removed");
         }
-        collectionManager.removeLower(length);
+        catch(NumberFormatException e){
+            consoleManager.println("length must be a number");
+        }
     }
 }

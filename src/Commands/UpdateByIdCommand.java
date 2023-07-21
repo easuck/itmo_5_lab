@@ -29,19 +29,14 @@ public class UpdateByIdCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        Long id;
-        while(true){
-            try{
-                consoleManager.print("enter id of element you want to update: ");
-                id = consoleManager.readLong();
-                if (!(id instanceof Long)) throw  new Exception();
-                break;
-            }
-            catch(Exception e){
-                consoleManager.println("you must enter a number, try again");
-            }
+    public void execute(String argument) {
+        try{
+            Long id = Long.parseLong(argument);
+            collectionManager.updateById(id, userActionsOnElement);
+            consoleManager.println("element was updated");
         }
-        collectionManager.updateById(id, userActionsOnElement);
+        catch(NumberFormatException e){
+            consoleManager.println("id must be a number");
+        }
     }
 }

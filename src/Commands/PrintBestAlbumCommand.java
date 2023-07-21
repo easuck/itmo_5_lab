@@ -1,5 +1,6 @@
 package Commands;
 
+import Exceptions.WrongAmountCommandsException;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 
@@ -26,7 +27,13 @@ public class PrintBestAlbumCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        collectionManager.printBestAlbumAscending();
+    public void execute(String argument) {
+        try{
+            if (!argument.isEmpty() && !argument.equals(getName())) throw new WrongAmountCommandsException();
+            collectionManager.printBestAlbumAscending();
+        }
+        catch(WrongAmountCommandsException e){
+            consoleManager.println("incorrect command usage, usage example: " + getName());
+        }
     }
 }
