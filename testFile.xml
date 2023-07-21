@@ -24,7 +24,7 @@
             <key>1</key>
             <value>
                 <id></id>
-                <name>Aurora</name>
+                <name>Aurora2</name>
                 <coordinates>
                     <x>1.0</x>
                     <y>0.0</y>
@@ -36,6 +36,25 @@
                 <bestAlbum>
                     <name>human</name>
                     <length>25</length>
+                </bestAlbum>
+            </value>
+        </entry>
+        <entry>
+            <key>2</key>
+            <value>
+                <id></id>
+                <name>Aurora3</name>
+                <coordinates>
+                    <x>1.0</x>
+                    <y>0.0</y>
+                </coordinates>
+                <creationDate></creationDate>
+                <numberOfParticipants>1</numberOfParticipants>
+                <singlesCount>2</singlesCount>
+                <genre>POP</genre>
+                <bestAlbum>
+                    <name>human</name>
+                    <length>20</length>
                 </bestAlbum>
             </value>
         </entry>

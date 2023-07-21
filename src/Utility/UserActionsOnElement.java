@@ -93,7 +93,7 @@ public class UserActionsOnElement {
     }
 
     public MusicGenre setMusicGenre(){
-        consoleManager.println("1.HIP-HOP\n2.RAP\n 3.POP");
+        consoleManager.println("1.HIP-HOP\n2.RAP\n3.POP");
         Integer genreNumber;
         while(true){
             try{

@@ -26,6 +26,11 @@ public class CommandsManager {
         commandsMap.put("save", new SaveCommand(collectionManager, fileReaderManager));
         commandsMap.put("updateById", new UpdateByIdCommand(collectionManager));
         commandsMap.put("removeGreater", new RemoveGreaterCommand(collectionManager));
+        commandsMap.put("removeLower", new RemoveLowerCommand(collectionManager));
+        commandsMap.put("replaceIfGreater", new ReplaceIfGreater(collectionManager));
+        commandsMap.put("removeFirstByGenre", new RemoveFirstByGenreCommand(collectionManager));
+        commandsMap.put("filterGreater", new FilterGreater(collectionManager));
+        commandsMap.put("printBestAlbum", new PrintBestAlbumCommand(collectionManager));
     }
 
     public CommandsManager(){
@@ -39,6 +44,11 @@ public class CommandsManager {
         commandsListForHelpCommand.add(new SaveCommand());
         commandsListForHelpCommand.add(new UpdateByIdCommand());
         commandsListForHelpCommand.add(new RemoveGreaterCommand());
+        commandsListForHelpCommand.add(new RemoveLowerCommand());
+        commandsListForHelpCommand.add(new ReplaceIfGreater());
+        commandsListForHelpCommand.add(new RemoveFirstByGenreCommand());
+        commandsListForHelpCommand.add(new FilterGreater());
+        commandsListForHelpCommand.add(new PrintBestAlbumCommand());
     }
 
     public HashMap<String, Command> getCommandsMap() {
